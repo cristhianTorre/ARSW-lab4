@@ -1,5 +1,6 @@
 package edu.eci.arsw.blueprintsapi;
 
+import edu.eci.arsw.blueprints.controllers.BlueprintAPIController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 public class BlueprintsAPIApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BlueprintsAPIApplication.class, args);
+		SpringApplication app = new SpringApplication((BlueprintAPIController.class));
+		app.run(args);
 	}
 }

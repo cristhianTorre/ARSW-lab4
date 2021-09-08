@@ -25,18 +25,7 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
 
     public InMemoryBlueprintPersistence() {
         //load stub data
-        Point[] pts=new Point[]{new Point(140, 140),new Point(115, 115)};
-        Blueprint bp=new Blueprint("_authorname_", "_bpname_ ",pts);
-        blueprints.put(new Tuple<>(bp.getAuthor(),bp.getName()), bp);
-        Point[] pts1=new Point[]{new Point(130, 40),new Point(25, 315)};
-        Blueprint bp1=new Blueprint("James","new",pts1);
-        blueprints.put(new Tuple<>(bp1.getAuthor(),bp1.getName()),bp1);
-        Point[] pts2=new Point[]{new Point(55, 240),new Point(115, 305)};
-        Blueprint bp2=new Blueprint("James","namebp",pts2);
-        blueprints.put(new Tuple<>(bp2.getAuthor(),bp2.getAuthor()),bp2);
-        Point[] pts3=new Point[]{new Point(5, 10),new Point(325, 35)};
-        Blueprint bp3=new Blueprint("Charles","xdxdx",pts3);
-        blueprints.put(new Tuple<>(bp3.getAuthor(),bp3.getName()),bp3);
+        load();
     }    
     
     @Override
@@ -223,6 +212,20 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
         }
         return conjunto2;
     }
-    
-    
+
+    @Bean
+    public void load(){
+        Point[] pts=new Point[]{new Point(140, 140),new Point(115, 115)};
+        Blueprint bp=new Blueprint("_authorname_", "_bpname_ ",pts);
+        blueprints.put(new Tuple<>(bp.getAuthor(),bp.getName()), bp);
+        Point[] pts1=new Point[]{new Point(130, 40),new Point(25, 315)};
+        Blueprint bp1=new Blueprint("James","new",pts1);
+        blueprints.put(new Tuple<>(bp1.getAuthor(),bp1.getName()),bp1);
+        Point[] pts2=new Point[]{new Point(55, 240),new Point(115, 305)};
+        Blueprint bp2=new Blueprint("James","namebp",pts2);
+        blueprints.put(new Tuple<>(bp2.getAuthor(),bp2.getAuthor()),bp2);
+        Point[] pts3=new Point[]{new Point(5, 10),new Point(325, 35)};
+        Blueprint bp3=new Blueprint("Charles","xdxdx",pts3);
+        blueprints.put(new Tuple<>(bp3.getAuthor(),bp3.getName()),bp3);
+    }
 }
