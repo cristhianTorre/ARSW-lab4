@@ -26,8 +26,9 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
     public InMemoryBlueprintPersistence() {
         //load stub data
         load();
-    }    
-    
+    }
+
+
     @Override
     public void saveBlueprint(Blueprint bp) throws BlueprintPersistenceException {
         if (blueprints.containsKey(new Tuple<>(bp.getAuthor(),bp.getName()))){
@@ -36,6 +37,12 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
         else{
             blueprints.put(new Tuple<>(bp.getAuthor(),bp.getName()), bp);
         }        
+    }
+
+    @Override
+    public void updateBlueprint(Blueprint bp,String author,String name) throws BlueprintNotFoundException {
+        Blueprint oldbp=getBlueprint(author,name);
+        oldbp.setPoints(bp.getPoints());
     }
 
     @Override

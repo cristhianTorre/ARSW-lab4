@@ -37,7 +37,18 @@ public class Point {
     public void setY(int y) {
         this.y = y;
     }
-    
-    
+
+    @Override
+    public boolean equals(Object obj) {
+        boolean equals;
+        if(!obj.getClass().getSimpleName().equals("Point")){
+            equals = false;
+        }
+        else{
+            Point point = (Point) obj;
+            equals = point.getX()==x && point.getY()==y;
+        }
+        return equals;
+    }
     
 }
